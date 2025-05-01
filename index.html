@@ -1,0 +1,2406 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoPC - Гид по сборке компьютера</title>
+    <style>
+        /* Общие стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Шапка */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Главный экран */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #2c3e50;
+        }
+        
+        .section-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Риски */
+        .risks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .risk-card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .risk-card h3 {
+            margin-bottom: 15px;
+            color: #e74c3c;
+        }
+        
+        /* Компоненты */
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .component-card {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            transition: transform 0.3s;
+        }
+        
+        .component-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .component-card h3 {
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        
+        /* Таблица */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        /* Отзывы */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .review-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .review-author {
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        /* Подвал */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Info<span>PC</span></div>
+                <ul class="nav-links">
+                    <li><a href="#risks">Риски</a></li>
+                    <li><a href="#introduction">Введение</a></li>
+                    <li><a href="#components">Компоненты</a></li>
+                    <li><a href="#compatibility">Совместимость</a></li>
+                    <li><a href="#reviews">Отзывы</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Главный экран -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Собери свой идеальный ПК</h1>
+                <p>Полное руководство по выбору компонентов и сборке компьютера с нуля. Избегайте распространенных ошибок и создайте систему своей мечты.</p>
+                <a href="#introduction" class="btn">Начать обучение</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Риски компьютерной неграмотности -->
+    <section id="risks">
+        <div class="container">
+            <h2>Как компьютерная неграмотность подвергает вас рискам</h2>
+            <div class="section-content">
+                <div class="risks-grid">
+                    <div class="risk-card">
+                        <h3>Финансовые потери</h3>
+                        <p>Незнание характеристик компонентов приводит к переплатам за ненужные функции или покупке слабых комплектующих, которые быстро устареют.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h3>Низкая производительность</h3>
+                        <p>Несбалансированная сборка (например, мощный процессор со слабой видеокартой) не раскроет потенциал системы.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h3>Проблемы с совместимостью</h3>
+                        <p>Несовместимые компоненты могут не работать вместе или потребовать дополнительных затрат на адаптеры.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h3>Перегрев и поломки</h3>
+                        <p>Неправильный выбор системы охлаждения или блока питания сокращает срок службы компьютера.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h3>Ограниченные возможности апгрейда</h3>
+                        <p>Неверный выбор платформы (сокет, чипсет) затруднит будущее обновление системы.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h3>Безопасность данных</h3>
+                        <p>Некачественные накопители или блоки питания могут привести к потере важной информации.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Введение в сборку ПК -->
+    <section id="introduction" style="background-color: #ecf0f1;">
+        <div class="container">
+            <h2>Введение в сборку ПК</h2>
+            <div class="section-content">
+                <h3>5 простых шагов для успешной сборки:</h3>
+                <ol style="margin-left: 20px; margin-top: 20px;">
+                    <li style="margin-bottom: 15px;"><strong>Определите цель использования</strong> - игровой ПК, рабочая станция, домашний медиацентр.</li>
+                    <li style="margin-bottom: 15px;"><strong>Установите бюджет</strong> - оптимальное распределение средств между компонентами.</li>
+                    <li style="margin-bottom: 15px;"><strong>Выберите центральные компоненты</strong> - процессор и видеокарта определяют производительность.</li>
+                    <li style="margin-bottom: 15px;"><strong>Обеспечьте совместимость</strong> - сокет процессора, форм-фактор материнской платы, мощность БП.</li>
+                    <li style="margin-bottom: 15px;"><strong>Продумайте охлаждение и апгрейд</strong> - запас по мощности и свободные слоты.</li>
+                </ol>
+                <p style="margin-top: 30px; font-style: italic;">"Сборка ПК - это как конструктор для взрослых. Когда понимаешь основы, процесс становится увлекательным и творческим!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Компоненты -->
+<section id="components">
+    <div class="container">
+        <h2>Ключевые компоненты ПК</h2>
+        <div class="section-content">
+            <div class="components-grid">
+    <div class="component-card" onclick="location.href='#cpu-details'">
+        <h3>Центральный процессор (CPU)</h3>
+        <p><strong>Функция:</strong> Выполняет все вычисления, управляет работой остальных компонентов.</p>
+        <div class="card-link"><strong>Влияет на:</strong> Общую производительность, многозадачность, скорость компиляции кода.</div>
+    </div>
+    <div class="component-card" onclick="location.href='#gpu-details'">
+        <h3>Видеокарта (GPU)</h3>
+        <p><strong>Функция:</strong> Обрабатывает графику в играх и приложениях, ускоряет рендеринг и вычисления.</p>
+        <div class="card-link"><strong>Влияет на:</strong> FPS в играх, скорость рендеринга, поддержку технологий (Ray Tracing, DLSS, FSR).</div>
+    </div>
+                <div class="component-card" onclick="location.href='#ram-details'">
+    <h3>Оперативная память (RAM)</h3>
+    <p><strong>Функция:</strong> Временное хранение данных для быстрого доступа процессора.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Количество одновременно открытых приложений, скорость загрузки уровней в играх.</div>
+</div>
+
+<div class="component-card" onclick="location.href='#motherboard-details'">
+    <h3>Материнская плата</h3>
+    <p><strong>Функция:</strong> Обеспечивает соединение всех компонентов, распределяет питание.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Совместимость комплектующих, возможности апгрейда, стабильность системы.</div>
+</div>
+
+<div class="component-card" onclick="location.href='#psu-details'">
+    <h3>Блок питания (PSU)</h3>
+    <p><strong>Функция:</strong> Преобразует ток из сети и распределяет питание между компонентами.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Стабильность работы, долговечность системы, защиту от скачков напряжения.</div>
+</div>
+
+<div class="component-card" onclick="location.href='#cooling-details'">
+    <h3>Системы охлаждения</h3>
+    <p><strong>Функция:</strong> Отвод тепла от процессора, видеокарты и других компонентов.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Температуру системы, уровень шума, стабильность под нагрузкой.</div>
+</div>
+
+<div class="component-card" onclick="location.href='#storage-details'">
+    <h3>Накопители</h3>
+    <p><strong>Функция:</strong> Хранение ОС, программ и пользовательских данных.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Скорость загрузки системы, время открытия программ, ёмкость хранилища.</div>
+</div>
+
+<div class="component-card" onclick="location.href='#case-details'">
+    <h3>Корпус</h3>
+    <p><strong>Функция:</strong> Защита компонентов, организация воздушного потока.</p>
+    <div class="card-link"><strong>Влияет на:</strong> Температуру системы, уровень шума, удобство сборки и апгрейда.</div>
+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Добавь этот код после секции "Ключевые компоненты ПК" -->
+<section id="cpu-details" class="component-detail" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Центральный процессор (CPU)</h2>
+        <div class="section-content">
+            <!-- Первая строка - Основные функции и Для рендеринга -->
+            <div class="detail-grid">
+                <!-- Основная информация -->
+                <div class="detail-card">
+                    <h3>Основные функции</h3>
+                    <ul>
+                        <li><strong>"Мозг" компьютера:</strong> выполняет все вычисления и управляет работой системы</li>
+                        <li><strong>Определяет:</strong> общую производительность, скорость отклика, многозадачность</li>
+                        <li><strong>Ключевые параметры:</strong> количество ядер/потоков, тактовая частота, кэш-память, TDP</li>
+                    </ul>
+                </div>
+
+                <!-- Для рендеринга -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>Для рендеринга/рабочих задач</h3>
+                    <ul>
+                        <li><strong>Ядер больше-лучше:</strong> 16+ (i9-14900K, Xeon, Ryzen 9 9950X, Threadripper)</li>
+                        <li><strong>Многопоточность:</strong> Hyper-Threading/SMT критически важен</li>
+                        <li><strong>Архитектура:</strong> уступает место общей производительности</li>
+                        <li><strong>Память:</strong> DDR5 или DDR4 ECC</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Вторая строка - Для игр и Важные нюансы -->
+            <div class="detail-grid">
+                <!-- Для игр -->
+                <div class="detail-card" style="border-left: 4px solid #e74c3c;">
+                    <h3>Для игр</h3>
+                    <ul>
+                        <li><strong>6-12 ядер:</strong> Core i5/i7 или Ryzen 5/7/9</li>
+                        <li><strong>Частота:</strong> 4.8-5.5 GHz (турбо-режим)</li>
+                        <li><strong>Кэш:</strong> 32MB+ (увеличен у AMD X3D)</li>
+                        <li><strong>Архитектура:</strong>
+                            <ul>
+                                <li>Intel: 13-14 поколение (Raptor Lake)</li>
+                                <li>AMD: Ryzen 7000/9000 (Zen 4/Zen 5)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Память:</strong> DDR5 с низкими таймингами</li>
+                    </ul>
+                    <p class="info-note">* Большинство игр используют 4-8 ядер, избыточные ядра помогают в стриминге</p>
+                </div>
+
+                <!-- Дополнительная информация -->
+                <div class="detail-card">
+                    <h3>Важные нюансы</h3>
+                    <div class="warning-note">
+                        <h4>⚠️ TDP - не всегда реальное потребление!</h4>
+                        <p>Фактическое энергопотребление указывается как Turbo Boost TDP, если такого нету, то смотрим потребление в тестах</p>
+                    </div>
+                    <div class="pro-tip">
+                        <h4>💡 Совет для геймеров</h4>
+                        <p>Сейчас Intel ушли в переработку архитектуры и нету смысла брать их новые процессоры</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Обновленные стили */
+    .component-detail {
+        padding: 60px 0;
+        border-top: 1px solid #eee;
+    }
+    .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+        gap: 25px;
+        margin-bottom: 25px;
+    }
+    .detail-card {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        width: 100%;
+    }
+    .info-note {
+        font-size: 13px;
+        color: #666;
+        margin-top: 10px;
+    }
+    .warning-note {
+        background: #fff4e6;
+        padding: 15px;
+        border-radius: 6px;
+        margin-bottom: 15px;
+    }
+    .pro-tip {
+        background: #e6f7ff;
+        padding: 15px;
+        border-radius: 6px;
+    }
+    
+    @media (max-width: 768px) {
+        .detail-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+<!-- Раздел видеокарт -->
+<section id="gpu-details" class="component-detail">
+    <div class="container">
+        <h2>Видеокарта (GPU)</h2>
+        <div class="section-content">
+            
+            <!-- Чип и архитектура -->
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Графический процессор</h3>
+                    <div class="spec-item">
+                        <p>Выполняет:</p>
+                        <ul>
+                            <li>Отрисовку графики в играх</li>
+                            <li>Ускорение 3D-рендеринга</li>
+                            <li>Вычисления для ИИ и майнинга</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Технологии:</h4>
+                        <ul>
+                            <li><strong>NVIDIA:</strong> DLSS (искусственное повышение FPS), RTX (трассировка лучей)</li>
+                            <li><strong>AMD:</strong> FSR (аналог DLSS), Radeon Super Resolution</li>
+                            <li><strong>Intel:</strong> XeSS (альтернатива DLSS)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Видеопамять -->
+                <div class="detail-card">
+                    <h3>Видеопамять (VRAM)</h3>
+                    <div class="spec-item">
+                        <p><strong>Тип:</strong></p>
+                        <ul>
+                            <li>GDDR6 (14-18 Гбит/с)</li>
+                            <li>GDDR6X (19-21 Гбит/с)</li>
+                            <li>HBM (премиальные модели)</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <p><strong>Рекомендации:</strong></p>
+                        <ul>
+                            <li>8 ГБ — минимум для 1080p</li>
+                            <li>12 ГБ — комфорт для 1440p</li>
+                            <li>16+ ГБ — 4K и работа с графикой</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Охлаждение и питание -->
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Охлаждение</h3>
+                    <div class="spec-item">
+                        <p><strong>Типы систем:</strong></p>
+                        <ul>
+                            <li><strong>Воздушное:</strong> 2-4 вентилятора + радиатор </li>
+                            <li><strong>Жидкостное (СЖО):</strong> Для экстремальных нагрузок</li>
+                            <li><strong>Гибридное:</strong> Комбинация жидкостного и воздушного</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <p><strong>Тепловыделение:</strong></p>
+                        <ul>
+                            <li>Бюджетные: 120-150W</li>
+                            <li>Игровые: 200-300W</li>
+                            <li>Топовые: 350-600W+</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Питание и разъемы</h3>
+                    <div class="spec-item">
+                        <p><strong>Разъемы питания:</strong></p>
+                        <div class="tag-group">
+                            <span class="tech-tag">6-pin (75W)</span>
+                            <span class="tech-tag">8-pin (150W)</span>
+                            <span class="tech-tag">12VHPWR (600W)</span>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <p><strong>Видеовыходы:</strong></p>
+                        <div class="tag-group">
+                            <span class="tech-tag">HDMI 2.1</span>
+                            <span class="tech-tag">DisplayPort 2.1</span>
+                            <span class="tech-tag">USB-C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Производители и рекомендации -->
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Производители</h3>
+                    <div class="spec-item">
+                        <h4>NVIDIA</h4>
+                        <ul>
+                            <li>Лучше для: высокого бюджетных сборок, рабочих станций, ИИ, рендеринга</li>
+                            <li>Технологии: CUDA, RTX, DLSS 4.0</li>
+                            <li>Рекомендуемые модели: RTX 3060 Ti и новее</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h4>AMD</h4>
+                        <ul>
+                            <li>Лучше для: игр, бюджетных сборок</li>
+                            <li>Технологии: FSR 3.0, SAM</li>
+                            <li>Рекомендуемые модели: RX 6600 и новее</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Практические советы</h3>
+                    <div class="spec-item">
+                        <h4>Андервольтинг</h4>
+                        <p>Снижение напряжения с сохранением производительности:</p>
+                        <ul>
+                            <li>Уменьшает нагрев на 10-15°C</li>
+                            <li>Снижает энергопотребление</li>
+                            <li>Увеличивает срок службы</li>
+                        </ul>
+                    </div>
+                    <div class="warning-note">
+                        <p>⚠️ Минимальный VRAM для 2024 года — 8 ГБ (лучше 12 ГБ+)</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для раздела */
+    .tech-tag {
+        display: inline-block;
+        background: #e0e0e0;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 14px;
+        margin: 4px;
+    }
+    .tag-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 10px 0;
+    }
+    .warning-note {
+        background: #ffebee;
+        padding: 12px;
+        border-radius: 6px;
+        margin-top: 15px;
+    }
+</style>
+
+<!-- Добавь этот код перед разделом "Совместимость" -->
+<section id="upscaling-tech" class="component-detail">
+    <div class="container">
+        <h2>Технологии повышения частоты кадров (Upscaling)</h2>
+        <div class="section-content">
+            <div class="tech-intro">
+                <p>Современные технологии используют нейросети и алгоритмы для повышения FPS с минимальной потерей качества. Вот сравнение основных решений:</p>
+            </div>
+<!-- изменённая таблица -->
+            <div class="scrollable-table">
+    <table class="compatibility-table">
+        <thead>
+            <tr>
+                <th>Технология</th>
+                <th>DLSS 4.0</th>
+                <th>FSR 4.0</th>
+                <th>XeSS 1.3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Поддерживаемые GPU</td>
+                <td>RTX 5000</td>
+                <td>RX 9000</td>
+                <td>Intel Arc, RTX 2000+, RX 5000+</td>
+            </tr>
+            <tr>
+                <td>Использует нейросети</td>
+                <td>Да (Tensor Cores)</td>
+                <td>Да (новый алгоритм)</td>
+                <td>Частично (DP4a/XMX)</td>
+            </tr>
+            <tr>
+                <td>Качество (при 1440p→4K)</td>
+                <td>Отличное</td>
+                <td>Очень хорошее (близко к DLSS)</td>
+                <td>Хорошее</td>
+            </tr>
+            <tr>
+                <td>Прирост FPS</td>
+                <td>2-3x</td>
+                <td>2-2.8x</td>
+                <td>1.5-2x</td>
+            </tr>
+            <tr>
+                <td>Уникальные фичи</td>
+                <td>Ray Reconstruction, Frame Gen</td>
+                <td>Hybrid Motion Frames, Anti-Lag 2</td>
+                <td>Адаптивный шарпинг</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+            <!-- Детали по технологиям -->
+            <div class="tech-section">
+                <h3>Подробнее о каждой технологии</h3>
+                <div class="tech-grid">
+                    <!-- DLSS -->
+                    <div class="tech-card">
+                        <div class="tech-header" style="background: #76b900;">
+                            <h4>DLSS </h4>
+                            <span class="tech-version">NVIDIA</span>
+                        </div>
+                        <div class="tech-content">
+                            <ul>
+                                <li><strong>Требования:</strong> RTX 2000+ </li>
+                                <li><strong>Особенности 4.0:</strong>
+                                    <ul>
+                                        <li>Улучшенный Ray Reconstruction для трассировки</li>
+                                        <li>Более плавный Frame Generation</li>
+                                        <li>Поддержка 8K с меньшими артефактами</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Лучше всего:</strong> Для RTX 4000/5000 с включенной трассировкой</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- FSR -->
+                    <div class="tech-card">
+                        <div class="tech-header" style="background: #ed1c24;">
+                            <h4>FSR</h4>
+                            <span class="tech-version">AMD</span>
+                        </div>
+                        <div class="tech-content">
+                            <ul>
+                                <li><strong>Требования:</strong> Любые DX12 карты</li>
+                                <li><strong>Новое в 4.0:</strong>
+                                    <ul>
+                                        <li>Hybrid Motion Frames (аналог Frame Gen)</li>
+                                        <li>Улучшенный временный upscaling</li>
+                                        <li>Меньше артефактов на быстром движении</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Лучше всего:</strong> Для RX 7000/9000 с включённой трассировкой</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- XeSS -->
+                    <div class="tech-card">
+                        <div class="tech-header" style="background: #0071c5;">
+                            <h4>XeSS </h4>
+                            <span class="tech-version">Intel</span>
+                        </div>
+                        <div class="tech-content">
+                            <ul>
+                                <li><strong>Требования:</strong> Arc A-series, RTX 2000+, RX 5000+</li>
+                                <li><strong>Особенности:</strong>
+                                    <ul>
+                                        <li>Адаптивный алгоритм шарпинга</li>
+                                        <li>Поддержка всех платформ</li>
+                                        <li>Меньшая зависимость от нейросетей</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Лучше всего:</strong> Для Intel Arc в балансе качества/производительности</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Дополнительные стили для раздела */
+    .tech-intro {
+        margin-bottom: 30px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+    }
+    
+    .tech-comparison h3 {
+        margin: 30px 0 15px;
+        color: #2c3e50;
+    }
+    
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
+    
+    .comparison-row {
+        display: contents;
+    }
+    
+    .comparison-row > div {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        background: white;
+    }
+    
+    .comparison-row.header > div {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+    
+    .comparison-row:last-child > div {
+        border-bottom: none;
+    }
+    
+    @media (max-width: 768px) {
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .comparison-row > div:first-child {
+            grid-column: 1 / span 4;
+            background: #f5f5f5;
+            font-weight: bold;
+        }
+    }
+</style>
+
+
+
+
+
+
+
+
+<!-- Оперативная память -->
+<section id="ram-details" class="component-detail" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Оперативная память (RAM)</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- Основные параметры -->
+                <div class="detail-card">
+                    <h3>Ключевые характеристики</h3>
+                    <div class="spec-item">
+                        <h4>Тип памяти</h4>
+                        <div class="tag-group">
+                            <span class="tech-tag">DDR4</span>
+                            <span class="tech-tag">DDR5</span>
+                        </div>
+                        <p><strong>Эволюция:</strong> DDR5 (2020+) предлагает выше частоты, но с более высокими таймингами.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Тайминги (CL)</h4>
+                        <p>Пример: <strong>CL16-18-18-36</strong> (чем меньше - тем лучше)</p>
+                        <ul>
+                            <li>CL (CAS Latency) - самый важный параметр</li>
+                            <li>DDR4: CL14-19, DDR5: CL28-40</li>
+                            <li>Реальная задержка = (CL / Частоту) × 2000</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Частота и объем -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>Частота и объём</h3>
+                    <div class="spec-item">
+                        <h4>Частота (МГц)</h4>
+                        <ul>
+                            <li>DDR4: 2133-4266 МГц</li>
+                            <li>DDR5: 4800-8800 МГц</li>
+                            <li><strong>Важно:</strong> Проверьте поддержку материнской платой</li>
+                        </ul>
+                        <div class="pro-tip">
+                            <p>💡 Разгон (XMP/DOCP/EXPO) может дать +10-15% производительности без рисков</p>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Рекомендуемый объём</h4>
+                        <ul>
+                            <li><strong>Офис:</strong> 8 ГБ</li>
+                            <li><strong>Игры:</strong> 16-32 ГБ</li>
+                            <li><strong>Рендеринг:</strong> 32-128 ГБ+</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Двухканальный режим -->
+            <div class="detail-grid">
+                <div class="detail-card" style="border-left: 4px solid #e74c3c;">
+                    <h3>Двухканальный режим</h3>
+                    <div class="spec-item">
+                        <h4>Как это работает?</h4>
+                        <p>Память работает "в 2 руки", что даёт до 30% к скорости.</p>
+                        <p><strong>Активация:</strong> необходимо 2 модуля и желательно одинаковых, которые нужно поставить соответсвенно мануалу материнской платы, зачастую это 1 и 3 или 2 и 4 слоты. Если слота всего 2, то займите их оба</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Практические советы</h3>
+                    <div class="spec-item">
+                        <h4>Оптимальная конфигурация</h4>
+                        <ul>
+                            <li><strong>2 модуля:</strong> Лучший баланс цены и производительности</li>
+                            <li><strong>4 модуля:</strong> Может снижать стабильность при разгоне</li>
+                            <li><strong>1 модуль:</strong> Только для бюджетных сборок</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+<!-- изменённая таблица -->
+           <div class="scrollable-table">
+    <table class="compatibility-table">
+        <thead>
+            <tr>
+                <th>Параметр</th>
+                <th>DDR4</th>
+                <th>DDR5</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Стандартные частоты</td>
+                <td>2133-3200 МГц</td>
+                <td>4800-6400 МГц</td>
+            </tr>
+            <tr>
+                <td>Типичные тайминги</td>
+                <td>CL14-19</td>
+                <td>CL28-40</td>
+            </tr>
+            <tr>
+                <td>Напряжение</td>
+                <td>1.2V</td>
+                <td>1.1V</td>
+            </tr>
+            <tr>
+                <td>Пропускная способность</td>
+                <td>25.6 ГБ/с (3200 МГц)</td>
+                <td>51.2 ГБ/с (6400 МГц)</td>
+            </tr>
+            <tr>
+                <td>Рекомендация</td>
+                <td>Бюджетные/старые системы</td>
+                <td>Новые игровые/рабочие ПК</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+            <!-- Предупреждения -->
+            <div class="warning-note" style="margin-top: 30px;">
+                <h4>⚠️ Важные нюансы</h4>
+                <ul>
+                    <li>Смешивание модулей с разными характеристиками может снижать производительность</li>
+                    <li>Важен не только объём, но и частота (оптимум 3600-4000 МГц)</li>
+                    <li>для работы двухканального режимо нужно чётное количество модулей</li>
+                </ul>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Дополнительные стили для раздела RAM */
+    .ram-feature {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    .ram-feature-icon {
+        width: 40px;
+        height: 40px;
+        background: #3498db;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-weight: bold;
+    }
+    .ram-feature-content {
+        flex: 1;
+    }
+    .brand-comparison {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    .brand-comparison th, .brand-comparison td {
+        padding: 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    .brand-comparison th {
+        background-color: #3498db;
+        color: white;
+    }
+    .brand-comparison tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<!-- Материнская плата -->
+<section id="motherboard-details" class="component-detail" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Материнская плата: ключевые факторы выбора</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- Сокет и память -->
+                <div class="detail-card">
+                    <h3>Базовые характеристики</h3>
+                    <div class="spec-item">
+                        <h4>Сокет процессора</h4>
+                        <div class="tag-group">
+                            <span class="tech-tag">LGA1700 (Intel 12-14gen)</span>
+                            <span class="tech-tag">AM5 (AMD Ryzen 7000+)</span>
+                            <span class="tech-tag">AM4 (AMD Ryzen 1000+)</span>
+                            <span class="tech-tag">LGA1200 (Intel 10-11gen)</span>
+                        </div>
+                        <p class="warning-note">⚠️ Несовместим между Intel и AMD! Проверяйте поддержку конкретных процессоров.</p>
+                    </div>
+                </div>
+
+                <!-- Разъемы и подключение -->
+                <div class="detail-card">
+                    <h3>Разъёмы и подключения</h3>
+                    <div class="spec-item">
+                        <h4>Ключевые интерфейсы</h4>
+                        <ul>
+                            <li><strong>Видео:</strong> HDMI/DP (для встроенной графики)</li>
+                            <li><strong>USB:</strong> 3.2 Gen2x2 (20 Гбит/с) / USB4 (40 Гбит/с)</li>
+                            <li><strong>Звук:</strong> 5.1/7.1 (кодек ALC1220 или лучше)</li>
+                            <li><strong>Сеть:</strong> 1G/2.5G/10G Ethernet, Wi-Fi 6E</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VRM и питание -->
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Система питания (VRM)</h3>
+                    <div class="spec-item">
+                        <h4>Фазы питания</h4>
+                        <div class="formula-card">
+    <div class="formula-header">
+        <h4>Расчёт минимального количества фаз питания</h4>
+        <div class="formula-icon">⚡</div>
+    </div>
+    <div class="formula-content">
+        <div class="formula-main">
+            <span class="formula-part">Макс. TDP процессора</span>
+            <span class="formula-divider">÷</span>
+            <span class="formula-part">35</span>
+            <span class="formula-equals">=</span>
+            <span class="formula-result">Минимальное количество фаз</span>
+        </div>
+        <div class="formula-example">
+            <p>Пример: Для процессора с TDP 105W → <strong>105 ÷ 35 = 3 фазы</strong></p>
+        </div>
+    </div>
+    <div class="formula-note">
+        <p>💡 <strong>Про запас:</strong> Нужно брать материнскую плату с <strong>+1-2 фазами</strong> к расчётному значению для стабильности. 4+2 фазы питания = 4 фазы на процессор, но производители часто пишут просто сумму</p>
+    </div>
+</div>
+                    </div>
+                </div>
+
+                <!-- Форм-фактор -->
+                <div class="detail-card">
+                    <h3>Форм-фактор</h3>
+                    <div class="spec-item">
+                        <div class="scrollable-table">
+                            <table class="compatibility-table">
+                                <thead>
+                                    <tr>
+                                        <th>Тип</th>
+                                        <th>Размер (мм)</th>
+                                        <th>Слотов PCIe</th>
+                                        <th>Для каких корпусов</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mini-ITX</td>
+                                        <td>170×170</td>
+                                        <td>1</td>
+                                        <td>Компактные</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MicroATX</td>
+                                        <td>244×244</td>
+                                        <td>1-3</td>
+                                        <td>Средние</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ATX</td>
+                                        <td>305×244</td>
+                                        <td>2-7</td>
+                                        <td>Полноразмерные</td>
+                                    </tr>
+                                    <tr>
+                                        <td>E-ATX</td>
+                                        <td>305×330</td>
+                                        <td>2-7</td>
+                                        <td>Увеличенные</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="warning-note">⚠️ Размер платы должен быть ≤ размера корпуса!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Накопители и доп. информация -->
+            <div class="detail-grid">
+                <div class="detail-card">
+                    <h3>Накопители</h3>
+                    <div class="spec-item">
+                        <ul>
+                            <li><strong>M.2:</strong> PCIe 4.0/5.0 x4 (до 16 ГБ/с)</li>
+                            <li><strong>SATA:</strong> 4-8 портов (для HDD/SSD)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Питание</h3>
+                    <div class="spec-item">
+                        <ul>
+                            <li><strong>Основной:</strong> 24-pin ATX</li>
+                            <li><strong>Процессор:</strong> 4/8-pin (75/150W рекомендуется)</li>
+                            <li><strong>Дополнительно:</strong> Слот PCIe выдаёт до 75W</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Рекомендации -->
+            <div class="tech-section">
+                <h3>Практические советы по выбору</h3>
+                <div class="advice-grid">
+                    <div class="advice-card">
+                        <h4>Для игр</h4>
+                        <ul>
+                            <li>ATX/MicroATX с хорошим VRM</li>
+                            <li>2+ слота M.2 PCIe 4.0</li>
+                            <li>USB 3.2 Gen2 для периферии</li>
+                            <li>Wi-Fi 6/AX (опционально)</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для офиса</h4>
+                        <ul>
+                            <li>MicroATX/Mini-ITX</li>
+                            <li>4+ USB на задней панели</li>
+                            <li>Встроенный Wi-Fi/Bluetooth</li>
+                            <li>HDMI/DisplayPort</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для рабочих станций</h4>
+                        <ul>
+                            <li>ATX/E-ATX с усиленным VRM</li>
+                            <li>10G Ethernet</li>
+                            <li>4+ слота M.2</li>
+                            <li>Поддержка ECC памяти</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Чеклист выбора -->
+            <div class="checklist-section">
+                <h3>Чеклист при покупке</h3>
+                <div class="checklist-grid">
+                    <div class="checklist-item">✅ Совместимость с процессором</div>
+                    <div class="checklist-item">✅ Достаточно фаз VRM</div>
+                    <div class="checklist-item">✅ Нужные разъёмы (USB, M.2)</div>
+                    <div class="checklist-item">✅ Поддержка DDR4/DDR5</div>
+                    <div class="checklist-item">✅ Соответствие корпусу</div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+<style>
+/* Стили для формулы расчета фаз питания */
+.formula-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 20px 0;
+    border-left: 4px solid #3498db;
+}
+
+.formula-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.formula-icon {
+    font-size: 24px;
+    background: #f1c40f;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.formula-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.formula-part {
+    padding: 8px 15px;
+    background: #3498db;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.formula-divider, .formula-equals {
+    font-size: 24px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.formula-result {
+    padding: 8px 15px;
+    background: #2ecc71;
+    color: white;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.formula-example {
+    background: #e8f4fc;
+    padding: 12px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.formula-note {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+    font-size: 14px;
+    color: #555;
+}
+    /* Стили для раздела */
+    .compact-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+    .compact-table th, .compact-table td {
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+    .compact-table th {
+        background-color: #3498db;
+        color: white;
+    }
+    .advice-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    .advice-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    .advice-card h4 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 5px;
+    }
+    .checklist-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+    }
+    .checklist-item {
+        background: #e8f4fc;
+        padding: 10px 15px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+    }
+    .checklist-item::before {
+        content: "✓";
+        color: #27ae60;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+</style>
+
+<!-- Блок питания -->
+<section id="psu-details" class="component-detail" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Блок питания (PSU): расчёт мощности и коннекторы</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- Расчет мощности -->
+                <div class="detail-card">
+                    <h3>Расчёт минимальной мощности</h3>
+                    <div class="spec-item">
+                        <h4>Формула расчёта</h4>
+                        <p><strong>Минимальная мощность = (GPU + CPU + 100Вт) × 1.2</strong></p>
+                        <p>Где:</p>
+                        <ul>
+                            <li><strong>GPU:</strong> Максимальное потребление видеокарты (TDP)</li>
+                            <li><strong>CPU:</strong> Максимальное потребление процессора (TDP)</li>
+                            <li><strong>100Вт:</strong> Запас для материнской платы, накопителей, охлаждения</li>
+                            <li><strong>×1.2:</strong> 20% запас, чтобы не перегружать блок питания</li>
+                        </ul>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Пример расчёта</h4>
+                        <p>Для системы с RTX 4070 (200Вт) и Ryzen 7 5800X (105Вт):</p>
+                        <p>(200 + 105 + 100) × 1.2 = 486Вт → выбираем БП от 500Вт по 12В</p>
+                    </div>
+                </div>
+
+                <!-- Коннекторы материнской платы -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>Коннекторы материнской платы</h3>
+                    <div class="spec-item">
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">24-pin</span>
+                                <span class="connector-type">Основной</span>
+                            </div>
+                            <p>Основное питание материнской платы. Современные БП используют 24-pin, но могут быть разъёмы 20+4pin для совместимости со старыми платами.</p>
+                        </div>
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">4-pin, 8-pin, 4+4-pin(универсальный)</span>
+                                <span class="connector-type">CPU</span>
+                            </div>
+                            <p>Дополнительное питание процессора.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Коннекторы видеокарты и накопителей -->
+            <div class="detail-grid">
+                <div class="detail-card" style="border-left: 4px solid #e74c3c;">
+                    <h3>Коннекторы видеокарты</h3>
+                    <div class="spec-item">
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">6-pin, 8-pin, 6+2-pin(универсальный(</span>
+                                <span class="connector-type">PCI-E</span>
+                            </div>
+                            <p>Общепринятый коннектор для видеокарт. 6-pin обеспечивает до 75Вт, 8-pin (6+2) - до 150Вт.</p>
+                        </div>
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">12VHPWR (16-pin)</span>
+                                <span class="connector-type">Новый стандарт</span>
+                            </div>
+                            <p>Для топовых видеокарт (RTX 3000/4000/5000). Обеспечивает до 600Вт (очень брезгливый к изгибам и контакту, от чего выходит из строя чаще).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>Коннекторы накопителей и периферии</h3>
+                    <div class="spec-item">
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">15-pin</span>
+                                <span class="connector-type">SATA</span>
+                            </div>
+                            <p>Для питания SSD/HDD и некоторых вентиляторов. Обеспечивает +3.3V, +5V и +12V.</p>
+                        </div>
+                        <div class="connector-card">
+                            <div class="connector-header">
+                                <span class="connector-pins">4-pin</span>
+                                <span class="connector-type">Molex</span>
+                            </div>
+                            <p>Устаревший стандарт для HDD, вентиляторов и RGB-контроллеров. Современные БП имеют 2-4 таких коннектора.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Рекомендации по выбору -->
+            <div class="tech-section">
+                <h3>Практические советы по выбору БП</h3>
+                <div class="advice-grid">
+                    <div class="advice-card">
+                        <h4>Мощность</h4>
+                        <ul>
+                            <li><strong>Офис:</strong> 400-500Вт</li>
+                            <li><strong>Игры:</strong> 550-850Вт</li>
+                            <li><strong>Топовая система:</strong> 1000Вт+</li>
+                            <li>Всегда оставляйте 20-30% запаса</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Сертификация</h4>
+                        <ul>
+                            <li><strong>80 Plus:</strong> Bronze, Silver, Gold, Platinum, Titanium</li>
+                            <li>Чем выше сертификация, тем выше КПД (меньше потерь)</li>
+                            <li>Gold - оптимальный баланс цены и качества</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Безопасность</h4>
+                        <ul>
+                            <li>Обязательные защиты: OVP, UVP, OCP, SCP, OTP</li>
+                            <li>Японские конденсаторы и чёрные катушки - признак качества</li>
+                            <li>Важно проверить статистическую надёжность в крупном магазине, по типу DNS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Чеклист выбора -->
+            <div class="checklist-section">
+                <h3>Чеклист при покупке БП</h3>
+                <div class="checklist-grid">
+                    <div class="checklist-item">✅ Достаточная мощность с запасом 20-30%</div>
+                    <div class="checklist-item">✅ Нужные коннекторы (GPU, CPU)</div>
+                    <div class="checklist-item">✅ Проверенный пользователями</div>
+                    <div class="checklist-item">✅ Полный набор защит</div>
+                    <div class="checklist-item">✅ Модульность (по желанию)</div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для раздела БП */
+    .connector-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    
+    .connector-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .connector-pins {
+        font-weight: bold;
+        color: #3498db;
+    }
+    
+    .connector-type {
+        background: #f0f0f0;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    .power-formula {
+        background: #e6f7ff;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 15px 0;
+        font-family: monospace;
+    }
+    
+    .power-formula strong {
+        color: #e74c3c;
+    }
+</style>
+
+<!-- Системы охлаждения -->
+<section id="cooling-details" class="component-detail">
+    <div class="container">
+        <h2>Системы охлаждения процессора</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- Основные критерии -->
+                <div class="detail-card">
+                    <h3>Ключевые параметры выбора</h3>
+                    <div class="spec-item">
+                        <h4>Совместимость</h4>
+                        <p><strong>Сокет:</strong> Должен совпадать с процессором (AM5, LGA1700 и др.)</p>
+                        <div class="tag-group">
+                            <span class="tech-tag">Intel LGA1700</span>
+                            <span class="tech-tag">Intel LGA1200</span>
+                            <span class="tech-tag">AMD AM5</span>
+                            <span class="tech-tag">AMD AM4</span>
+                        </div>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Производительность</h4>
+                        <p><strong>TDP:</strong> Должен превышать TDP процессора (рекомендуется +20-30%)</p>
+                        <p><strong>Шум:</strong> 20-30 дБ - тихий, 35+ дБ - заметный шум</p>
+                    </div>
+                </div>
+
+                <!-- Типы охлаждения -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>Типы систем охлаждения</h3>
+                    <div class="cooling-type">
+                        <h4>Воздушное (СВО)</h4>
+                        <p><strong>Габариты:</strong> Высота до 40-180 мм (проверьте корпус)</p>
+                        <div class="pros-cons">
+                            <p><span class="pro">✔</span> Надёжность</p>
+                            <p><span class="pro">✔</span> Нет жидкости</p>
+                            <p><span class="con">✖</span> Большие размеры</p>
+                        </div>
+                    </div>
+                    <div class="cooling-type">
+                        <h4>Жидкостное (СЖО)</h4>
+                        <p><strong>Габариты:</strong> Радиатор 120-360 мм + блок на процессоре</p>
+                        <div class="pros-cons">
+                            <p><span class="pro">✔</span> Эффективность</p>
+                            <p><span class="pro">✔</span> Компактность на CPU</p>
+                            <p><span class="con">✖</span> Риск протечки</p>
+                            <p><span class="con">✖</span> Срок службы 3-5 лет</p>
+                            <p><span class="con">✖</span> Сложность в обслуживании</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Рекомендации -->
+            <div class="tech-section">
+                <h3>Практические советы</h3>
+                <div class="advice-grid">
+                    <div class="advice-card">
+                        <h4>Для офиса/мультимедиа</h4>
+                        <ul>
+                            <li>Базовые воздушные кулеры</li>
+                            <li>TDP 65-105Вт</li>
+                            <li>разброс по громкости от тихих до орущих</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для игр</h4>
+                        <ul>
+                            <li>Топовые воздушные (4-8 трубок + испарительная камера) или СЖО 240-280мм</li>
+                            <li>Регулировка оборотов (4pin вентиляторы)</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для разгона</h4>
+                        <ul>
+                            <li>СЖО 280-360мм или кастомная СЖО</li>
+                            <li>TDP 250+ Вт</li>
+                            <li>Высокий воздушный поток</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для раздела охлаждения */
+    .cooling-type {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #eee;
+    }
+    
+    .cooling-type:last-child {
+        border-bottom: none;
+    }
+    
+    .pros-cons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .pro {
+        color: #27ae60;
+        margin-right: 5px;
+    }
+    
+    .con {
+        color: #e74c3c;
+        margin-right: 5px;
+    }
+    
+    .cooling-spec {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+    }
+</style>
+
+<!-- Добавь этот код после раздела систем охлаждения -->
+<section id="storage-details" class="component-detail" style="background-color: #f9f9f9;">
+    <div class="container">
+        <h2>Накопители: виды и рекомендации</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- SSD -->
+                <div class="detail-card">
+                    <h3>SSD (твердотельные накопители)</h3>
+                    <div class="storage-type">
+                        <h4>M.2 NVMe</h4>
+                        <div class="storage-spec">
+                            <p><strong>Интерфейс:</strong> PCI-E 3.0/4.0</p>
+                            <p><strong>Скорость:</strong> До 7400 МБ/с</p>
+                            <p><strong>Ёмкость:</strong> До 122 ТБ</p>
+                        </div>
+                        <div class="pros-cons">
+                            <p><span class="pro">✔</span> Максимальная скорость</p>
+                            <p><span class="pro">✔</span> Компактность</p>
+                            <p><span class="con">✖</span> Нагрев при нагрузке</p>
+                        </div>
+                    </div>
+                    <div class="storage-type">
+                        <h4>2.5" SATA</h4>
+                        <div class="storage-spec">
+                            <p><strong>Интерфейс:</strong> SATA III</p>
+                            <p><strong>Скорость:</strong> До 560 МБ/с</p>
+                            <p><strong>Ёмкость:</strong> До 30 ТБ</p>
+                        </div>
+                        <div class="pros-cons">
+                            <p><span class="pro">✔</span> Совместимость</p>
+                            <p><span class="pro">✔</span> Доступная цена</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HDD -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>HDD (жёсткие диски)</h3>
+                    <div class="storage-type">
+                        <h4>3.5"</h4>
+                        <div class="storage-spec">
+                            <p><strong>Интерфейс:</strong> SATA III</p>
+                            <p><strong>Скорость:</strong> До 150-250 МБ/с</p>
+                            <p><strong>Ёмкость:</strong> До 36 ТБ</p>
+                        </div>
+                        <div class="pros-cons">
+                            <p><span class="pro">✔</span> Восстановление данных</p>
+                            <p><span class="con">✖</span> Шум и вибрация</p>
+                            <p><span class="con">✖</span> Чувствительность к ударам</p>
+                        </div>
+                    </div>
+                    <div class="storage-type">
+                        <h4>2.5"</h4>
+                        <div class="storage-spec">
+                            <p><strong>Применение:</strong> Ноутбуки, внешние накопители</p>
+                            <p><strong>Ёмкость:</strong> До 5 ТБ</p>
+                            <p><strong>Потребление:</strong> Ниже чем 3.5"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Важная информация -->
+            <div class="warning-note">
+                <h4>⚠️ Особенности SSD и HDD</h4>
+                <ul>
+                    <li>SSD не подлежит восстановлению при выходе из строя</li>
+                    <li>HDD позволяет восстановить данные при поломке</li>
+                    <li>SSD чувствительны к количеству циклов записи (TBW)</li>
+                    <li>HDD уявзвимы к физическим воздействиям</li>
+                </ul>
+            </div>
+
+            <!-- Рекомендации -->
+            <div class="tech-section">
+                <h3>Рекомендации по использованию</h3>
+                <div class="advice-grid">
+                    <div class="advice-card">
+                        <h4>Для системы и приложений</h4>
+                        <ul>
+                            <li>NVMe SSD 500ГБ-1ТБ (ОС, программы)</li>
+                            <li>Оптимально: PCIe 4.0 (7000 МБ/с)</li>
+                            <li>Дополнительно: HDD 1TB для проектов</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для игр</h4>
+                        <ul>
+                            <li>SSD 1-2ТБ (современные игры)</li>
+                            <li>PCIe 3.0/4.0 (2100-7000 МБ/с)</li>
+                            <li>Быстрая загрузка текстур</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для хранения данных</h4>
+                        <ul>
+                            <li>HDD 3.5" 4-8ТБ (фото, видео, архивы)</li>
+                            <li>Рекомендуется NAS/RAID для важных данных</li>
+                            <li>Скорость 7200 rpm для активной работы</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для раздела накопителей */
+    .storage-type {
+        margin-bottom: 20px;
+        padding-bottom: 15px;
+        border-bottom: 1px dashed #eee;
+    }
+    
+    .storage-type:last-child {
+        border-bottom: none;
+    }
+    
+    .storage-spec {
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 6px;
+        margin: 10px 0;
+    }
+    
+    .storage-spec p {
+        margin: 5px 0;
+    }
+    
+    .speed-badge {
+        display: inline-block;
+        background: #3498db;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+</style>
+
+<!-- Добавь этот код после раздела накопителей -->
+<section id="case-details" class="component-detail">
+    <div class="container">
+        <h2>Корпуса и система вентиляции</h2>
+        <div class="section-content">
+            <div class="detail-grid">
+                <!-- Основные параметры корпусов -->
+                <div class="detail-card">
+                    <h3>Ключевые характеристики корпусов</h3>
+                    <div class="spec-item">
+                        <h4>Форм-фактор</h4>
+                        <div class="tag-group">
+                            <span class="tech-tag">Mini-ITX</span>
+                            <span class="tech-tag">MicroATX</span>
+                            <span class="tech-tag">ATX</span>
+                            <span class="tech-tag">E-ATX</span>
+                        </div>
+                        <p>Должен соответствовать размеру материнской платы</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Габариты компонентов</h4>
+                        <ul>
+                            <li><strong>Видеокарта:</strong> Должна влезать в корпус</li>
+                            <li><strong>Кулер CPU:</strong> До 155-185 мм в высоту</li>
+                            <li><strong>БП:</strong> ATX - стандарт для большинства корпусов</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Система вентиляции -->
+                <div class="detail-card" style="border-left: 4px solid #3498db;">
+                    <h3>Система вентиляции</h3>
+                    <div class="spec-item">
+                        <h4>Типы вентиляторов</h4>
+                        <div class="tag-group">
+                            <span class="tech-tag">120 мм</span>
+                            <span class="tech-tag">140 мм</span>
+                            <span class="tech-tag">200 мм</span>
+                        </div>
+                        <p>Чем больше диаметр - тише работа при том же воздушном потоке</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Оптимальная конфигурация</h4>
+                        <ul>
+                            <li>2-3 впускных (перед/низ)</li>
+                            <li>1-2 выпускных (зад/верх)</li>
+                            <li>Положительный перепад давления (меньше пыли)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Типы корпусов -->
+            <div class="tech-section">
+                <h3>Популярные типы корпусов</h3>
+                <div class="case-types">
+                    <div class="case-card">
+                        <h4>Full-Tower</h4>
+                        <div class="case-spec">
+                            <p><strong>Размер:</strong> Очень большой</p>
+                            <p><strong>Плюсы:</strong> Отличное охлаждение, место для апгрейда и проводов</p>
+                            <p><strong>Минусы:</strong> Громоздкий, дорогой</p>
+                        </div>
+                    </div>
+                    <div class="case-card">
+                        <h4>Mid-Tower</h4>
+                        <div class="case-spec">
+                            <p><strong>Размер:</strong> Средний</p>
+                            <p><strong>Плюсы:</strong> Баланс размера и функциональности</p>
+                            <p><strong>Минусы:</strong> Ограничения по длине видеокарты</p>
+                        </div>
+                    </div>
+                    <div class="case-card">
+                        <h4>Mini-Tower</h4>
+                        <div class="case-spec">
+                            <p><strong>Размер:</strong> Компактный</p>
+                            <p><strong>Плюсы:</strong> Экономия места</p>
+                            <p><strong>Минусы:</strong> Сложность сборки, нагрев</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Чеклист выбора -->
+            <div class="checklist-section">
+                <h3>Чеклист при выборе корпуса</h3>
+                <div class="checklist-grid">
+                    <div class="checklist-item">✅ Совместимость с материнской платой</div>
+                    <div class="checklist-item">✅ Достаточно места для видеокарты</div>
+                    <div class="checklist-item">✅ Поддержка высоты кулера CPU</div>
+                    <div class="checklist-item">✅ Количество и расположение вентиляторов</div>
+                    <div class="checklist-item">✅ Пылевые фильтры на впуске</div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для раздела корпусов */
+    .case-types {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .case-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .case-spec {
+        margin-top: 10px;
+    }
+    
+    .case-spec p {
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    .airflow-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .airflow-card {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    
+    .airflow-diagram {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 8px;
+        margin: 10px 0;
+        min-height: 150px;
+        position: relative;
+    }
+    
+    .fan {
+        position: absolute;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+    }
+    
+    .intake {
+        background: #3498db;
+        color: white;
+    }
+    
+    .exhaust {
+        background: #e74c3c;
+        color: white;
+    }
+</style>
+
+<!-- Добавь этот код перед разделом отзывов -->
+<section id="compatibility-tables" class="component-detail" style="background-color: #ecf0f1;">
+    <div class="container">
+        <h2>Оптимальные конфигурации</h2>
+        <div class="section-content">
+            
+            <!-- Для игр -->
+            <h3 style="margin-top: 20px;">Игровые сборки</h3>
+            <div class="scrollable-table">
+                <table class="compatibility-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Процессоры</th>
+                            <th rowspan="2">Видеокарты</th>
+                            <th rowspan="2">ОЗУ</th>
+                            <th rowspan="2">Стоимость (руб)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Топовый уровень -->
+                        <tr class="high-end">
+                            <td>R9 9800X3D</td>
+                            <td>RTX 4090</td>
+                            <td>DDR5 64ГБ</td>
+                            <td>342.000</td>
+                        </tr>
+                        <!-- Высокий уровень -->
+                        <tr class="high-end">
+                            <td>R9 9900X<br>i9 14900K</td>
+                            <td>RX 7900 XTX<br>RTX 4080 SUPER<br>RTX 4070 SUPER</td>
+                            <td>DDR5 32ГБ</td>
+                            <td>192.500<br>162.500<br>148.500</td>
+                        </tr>
+                        <!-- Средний уровень -->
+                        <tr class="mid-range">
+                            <td>i7-14700KF<br>R5 7600X3D<br>R7 7700X</td>
+                            <td>RX 7900 XT<br>RTX 4070 SUPER</td>
+                            <td>DDR5 32ГБ</td>
+                            <td>139.000<br>132.500</td>
+                        </tr>
+                        <tr class="mid-range">
+                            <td>i5 14600KF<br>R7 5700X3D</td>
+                            <td>RX 7800 XT</td>
+                            <td>DDR5/4 16ГБ</td>
+                            <td>110.000</td>
+                        </tr>
+                        <!-- Бюджетный уровень -->
+                        <tr class="budget">
+                            <td>i5 12400F</td>
+                            <td>RX 7700 XT<br>RTX 4060</td>
+                            <td>DDR5 16ГБ</td>
+                            <td>58.500</td>
+                        </tr>
+                        <tr class="budget">
+                            <td>R5 5600</td>
+                            <td>RX 7600 XT<br>RTX 3060</td>
+                            <td>DDR4 16ГБ</td>
+                            <td>50.500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Для рендеринга -->
+            <h3 style="margin-top: 40px;">Сборки для рендеринга/рабочих задач</h3>
+            <div class="scrollable-table">
+                <table class="compatibility-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Процессоры</th>
+                            <th rowspan="2">Видеокарты</th>
+                            <th rowspan="2">ОЗУ</th>
+                            <th rowspan="2">Стоимость (руб)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Топовый уровень -->
+                        <tr class="high-end">
+                            <td>U9 285K<br>R9 9950X</td>
+                            <td>RTX 4090<br>RTX 4080</td>
+                            <td>DDR5 128ГБ</td>
+                            <td>369.000<br>257.000</td>
+                        </tr>
+                        <!-- Высокий уровень -->
+                        <tr class="high-end">
+                            <td>I9-14900K<br>R9 7950X</td>
+                            <td>RTX 4070 SUPER</td>
+                            <td>DDR5 64ГБ</td>
+                            <td>166.000</td>
+                        </tr>
+                        <!-- Средний уровень -->
+                        <tr class="mid-range">
+                            <td>i7-13700F<br>R7 7700X</td>
+                            <td>RTX 4070 SUPER</td>
+                            <td>DDR5 32ГБ</td>
+                            <td>132.500</td>
+                        </tr>
+                        <!-- Бюджетный уровень -->
+                        <tr class="budget">
+                            <td>i5 13400F<br>R5 7500F</td>
+                            <td>RTX 4060</td>
+                            <td>DDR5 32ГБ</td>
+                            <td>70.000</td>
+                        </tr>
+                        <tr class="budget">
+                            <td>i5 12400F</td>
+                            <td>RTX 4060</td>
+                            <td>DDR5 16ГБ</td>
+                            <td>58.000</td>
+                        </tr>
+                        <tr class="budget">
+                            <td>R5 5600X</td>
+                            <td>RTX 3060</td>
+                            <td>DDR4 16ГБ</td>
+                            <td>50.500</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Рекомендации -->
+            <div class="tech-section" style="margin-top: 30px;">
+                <h3>Ключевые отличия сборок</h3>
+                <div class="advice-grid">
+                    <div class="advice-card">
+                        <h4>Для игр</h4>
+                        <ul>
+                            <li>Акцент на мощную видеокарту</li>
+                            <li>16-32ГБ оперативной памяти</li>
+                            <li>Процессор с высокой IPC</li>
+                            <li>SSD накопители</li>
+                        </ul>
+                    </div>
+                    <div class="advice-card">
+                        <h4>Для рабочих задач</h4>
+                        <ul>
+                            <li>Многоядерные процессоры</li>
+                            <li>64-128ГБ оперативной памяти</li>
+                            <li>Видеокарты с большим VRAM</li>
+                            <li>Nvme для работы, HDD для хранения</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для таблиц совместимости */
+    .compatibility-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+    }
+    
+    .compatibility-table th, 
+    .compatibility-table td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    
+    .compatibility-table th {
+        background-color: #2c3e50;
+        color: white;
+        position: sticky;
+        top: 0;
+    }
+    
+    .compatibility-table tr.high-end {
+        background-color: #e8f4fc;
+    }
+    
+    .compatibility-table tr.mid-range {
+        background-color: #f9f9f9;
+    }
+    
+    .compatibility-table tr.budget {
+        background-color: #f5f5f5;
+    }
+    
+    .compatibility-table tr:hover {
+        background-color: #f0f0f0;
+    }
+    
+    .scrollable-table {
+        overflow-x: auto;
+        margin-bottom: 30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Подсветка ячеек с процессорами */
+    .compatibility-table td:nth-child(1) {
+        text-align: left;
+        font-weight: 500;
+    }
+    
+    /* Подсветка ячеек с видеокартами */
+    .compatibility-table td:nth-child(2) {
+        text-align: left;
+    }
+    
+    /* Адаптивность */
+    @media (max-width: 768px) {
+        .compatibility-table {
+            font-size: 14px;
+        }
+        
+        .compatibility-table th, 
+        .compatibility-table td {
+            padding: 8px 10px;
+        }
+    }
+</style>
+
+<style>
+    /* Стили для раздела технологий */
+    .tech-section {
+        margin-top: 40px;
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .tech-card {
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    
+    .tech-header {
+        padding: 15px;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .tech-version {
+        background: rgba(255,255,255,0.2);
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-size: 14px;
+    }
+    
+    .tech-content {
+        padding: 15px;
+        background: white;
+    }
+    
+    .tech-content ul {
+        margin-left: 20px;
+    }
+    
+    .tech-comparison {
+        margin-top: 30px;
+    }
+    
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .comparison-row {
+        display: contents;
+    }
+    
+    .comparison-row > div {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        background: white;
+    }
+    
+    .comparison-row.header > div {
+        background: #f5f5f5;
+        font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+        .comparison-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .comparison-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>
+
+</style>
+ <!-- Совместимость -->
+<section id="compatibility" style="background-color: #ecf0f1;">
+    <div class="container">
+        <h2>Таблица совместимости компонентов</h2>
+        <div class="section-content">
+            <div class="scrollable-table">
+                <table class="compatibility-table">
+                    <thead>
+                        <tr>
+                            <th>Компонент</th>
+                            <th>Что проверять</th>
+                            <th>Рекомендации</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CPU + Материнская плата</td>
+                            <td>Сокет, чипсет, версия BIOS</td>
+                            <td>Intel: LGA1700 (12-14gen), AMD: AM5 (новые) / AM4 (старые)</td>
+                        </tr>
+                        <tr>
+                            <td>RAM + Материнская плата</td>
+                            <td>Тип (DDR4/DDR5), частота, QVL-лист</td>
+                            <td>DDR4 3200-3600 МГц или DDR5 5200-6000 МГц</td>
+                        </tr>
+                        <tr>
+                            <td>Видеокарта + БП</td>
+                            <td>Разъемы питания (6+2pin), длина</td>
+                            <td>RTX 3080+ - 750Вт+, RX 6700XT - 650Вт+</td>
+                        </tr>
+                        <tr>
+                            <td>Кулер + Корпус</td>
+                            <td>Высота кулера, максимальная длина видеокарты</td>
+                            <td>Проверьте спецификации корпуса</td>
+                        </tr>
+                        <tr>
+                            <td>SSD + Материнская плата</td>
+                            <td>M.2 слоты (PCIe 3.0/4.0), SATA порты</td>
+                            <td>NVMe для системы, SATA для хранения</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Отзывы -->
+    <section id="reviews">
+        <div class="container">
+            <h2>Отзывы наших тестеров</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"Не плохо."</p>
+                    <div class="review-author">Александр Т. Пересвет</div>
+                </div>
+                <div class="review-card">
+                    <p>"Информативно, всё по итогу хорошу"</p>
+                    <div class="review-author">Данила З. Пересвет</div>
+                </div>
+                <div class="review-card">
+                    <p>"Собрал компьютер, понял что до этого я жил во мраке, но RGB подсветка осветила мой рабочий стол и жизнь..."</p>
+                    <div class="review-author">Иван Р. Пересвет</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>О проекте</h3>
+                    <p>InfoPC - это бесплатное руководство по подбору компонентов для начинающих и опытных пользователей.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#risks">Риски</a></li>
+                        <li><a href="#introduction">Введение</a></li>
+                        <li><a href="#components">Компоненты</a></li>
+                        <li><a href="#compatibility">Совместимость</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li>Email: troh226@gmail.com</li>
+                        <li>Телефон: +7 963 666 25 50</li>
+                        <li>Telegram: @rdtvhbjnkghdbn</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 InfoPC.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
