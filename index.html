@@ -1570,6 +1570,134 @@
     }
 </style>
 
+<!-- Калькулятор мощности БП -->
+<section id="psu-calculator" class="component-detail" style="background-color: #e8f4fc;">
+    <div class="container">
+        <h2>Калькулятор мощности блока питания</h2>
+        <div class="section-content">
+            <div class="calculator-card">
+                <div class="calculator-header">
+                    <h3>Рассчитайте необходимую мощность вашей системы</h3>
+                    <p>Узнайте, какой блок питания подойдет для вашей конфигурации</p>
+                </div>
+                <div class="calculator-content">
+                    <div class="calculator-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">⚡</span>
+                            <span>Точный расчет мощности</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">🔧</span>
+                            <span>Учет всех компонентов</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">💡</span>
+                            <span>Рекомендации с запасом</span>
+                        </div>
+                    </div>
+                    <div class="calculator-actions">
+                        <a href="https://ashikunov.github.io/cal" 
+                           target="_blank" 
+                           class="calculator-btn">
+                            Перейти к калькулятору
+                        </a>
+                        <p class="calculator-note">Откроется в новом окне</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#components" class="back-btn">← К списку компонентов</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Стили для калькулятора */
+    .calculator-card {
+        background: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        text-align: center;
+        border-left: 4px solid #3498db;
+    }
+    
+    .calculator-header {
+        margin-bottom: 25px;
+    }
+    
+    .calculator-header h3 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    .calculator-header p {
+        color: #666;
+        font-size: 16px;
+    }
+    
+    .calculator-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 25px 0;
+    }
+    
+    .feature-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+    
+    .feature-icon {
+        font-size: 20px;
+    }
+    
+    .calculator-actions {
+        margin-top: 30px;
+    }
+    
+    .calculator-btn {
+        display: inline-block;
+        background: linear-gradient(135deg, #3498db, #2980b9);
+        color: white;
+        padding: 15px 35px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+    }
+    
+    .calculator-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+        background: linear-gradient(135deg, #2980b9, #3498db);
+    }
+    
+    .calculator-note {
+        margin-top: 15px;
+        color: #7f8c8d;
+        font-size: 14px;
+    }
+    
+    @media (max-width: 768px) {
+        .calculator-features {
+            grid-template-columns: 1fr;
+        }
+        
+        .calculator-btn {
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+    }
+</style>
+    
 <!-- Системы охлаждения -->
 <section id="cooling-details" class="component-detail">
     <div class="container">
